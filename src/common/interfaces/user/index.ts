@@ -10,6 +10,8 @@ export interface User {
   otpVerified: boolean;
   lastPasswordChange?: Date;
   isEmailVerified?: boolean;
+  tempOTP?: string;
+  tempOTPExpiry?: Date;
   profilePicture?: string;
   updatedAt?: string;
   lastLoginAt?: string;
@@ -29,8 +31,8 @@ export interface IUserRegistration {
 }
 
 export interface UserLogin {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 }
 
 export interface updatePasswordInput {
@@ -39,11 +41,11 @@ export interface updatePasswordInput {
 }
 
 export interface UserProfileUpdate {
-    firstName: string;
-    LastName: string;
-    email: string;
-    username: string;
-    profilepicture?: string;
+  firstName: string;
+  LastName: string;
+  email: string;
+  username: string;
+  profilepicture?: string;
 }
 
 export interface IPasswordChange {

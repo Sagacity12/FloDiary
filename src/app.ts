@@ -4,12 +4,9 @@ import { createExpressApp } from "./servers/createExpressApp";
 import { logger } from "./logger/logger";
 import { connectDB } from "./servers/mongodb/mongodb";
 import client from "./servers/mongodb/redisConnectDB";
-//import applyRouters from "./routes/route";
-//import { authMiddleware } from "./middleware/authmiddleware";
-//import { isTokenBlacklisted } from "./helpers/blacklisted";
-//import { constructHttpErrorResponse } from "./helpers/helper";
-//import errorHandler from "./middleware/error-Handler";
-import createError from "http-errors";
+import applyRouters from "./routes/routes";
+import errorHandler from "./middleware/error-handle";
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -42,9 +39,9 @@ export const startServer = async () => {
     });
   });
 
-  //await applyRouters(app);
+  await applyRouters(app);
 
- // app.use(errorHandler);
+  app.use(errorHandler);
 
   //app.all("*", (_req, _, next) => {
   //  next(createError(404, "Not Found"));
